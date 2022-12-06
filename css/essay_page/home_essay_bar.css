@@ -1,0 +1,191 @@
+
+
+/* 颜色 */
+:root {
+  --lcl-theme-op: #4259ef23;
+  --lcl-gray-op: #9999992b;
+  --lcl-theme-top: var(--lcl-theme);
+  --lcl-white: #fff;
+  --lcl-white-op: rgba(255, 255, 255, 0.2);
+  --lcl-black: #000;
+  --lcl-black-op: rgba(0, 0, 0, 0.2);
+  --lcl-none: rgba(0, 0, 0, 0);
+  --lcl-gray: #999999;
+  --lcl-yellow: #ffc93e;
+  --lcl-border-radius: 8px;
+  --lcl-main: var(--lcl-theme);
+  --lcl-main-op: var(--lcl-theme-op);
+  --lcl-shadow-theme: 0 8px 12px -3px var(--lcl-theme-op);
+  --lcl-shadow-main: 0 8px 12px -3px var(--lcl-main-op);
+  --lcl-shadow-blue: 0 8px 12px -3px rgba(40, 109, 234, 0.2);
+  --lcl-shadow-white: 0 8px 12px -3px rgba(255, 255, 255, 0.2);
+  --lcl-shadow-black: 0 0 12px 4px rgba(0, 0, 0, 0.05);
+  --lcl-shadow-yellow: 0px 38px 77px -26px rgba(255, 201, 62, 0.12);
+  --lcl-shadow-red: 0 8px 12px -3px #ee7d7936;
+  --lcl-shadow-green: 0 8px 12px -3px #87ee7936;
+  --lcl-shadow-border: 0 8px 16px -4px #2c2d300c;
+  --lcl-shadow-blackdeep: 0 2px 16px -3px rgba(0, 0, 0, 0.15);
+  --lcl-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
+  --style-border: 1px solid var(--lcl-card-border);
+  --lcl-blue-main: #0A6EDE;
+  --style-border-hover: 1px solid var(--lcl-main);
+  --style-border-dashed: 1px dashed var(--lcl-theme-op);
+  --style-border-avatar: 4px solid var(--lcl-background);
+  --style-border-always: 1px solid var(--lcl-card-border);
+  --style-border-none: 1px solid transparent;
+  --lcl-white-acrylic1: #fefeff !important;
+  --lcl-white-acrylic2: #fcfdff !important;
+  --lcl-black-acrylic2: #08080a !important;
+  --lcl-black-acrylic1: #0b0b0e !important;
+  --lcl-main-none: #b8b8b800 !important;
+}
+
+[data-theme="light"] {
+  --lcl-theme: #0A6EDE;
+  --lcl-theme-deep: #1856fb;
+  --lcl-theme-op: #4259ef23;
+  --lcl-blue: #0A6EDE;
+  --lcl-red: #d8213c;
+  --lcl-pink: #ff7c7c;
+  --lcl-green: #57bd6a;
+  --lcl-fontcolor: #363636;
+  --lcl-background: #f7f9fe;
+  --lcl-reverse: #000;
+  --lcl-maskbg: rgba(255, 255, 255, 0.6);
+  --lcl-maskbgdeep: rgba(255, 255, 255, 0.85);
+  --lcl-hovertext: var(--lcl-theme);
+  --lcl-ahoverbg: #f7f7fa;
+  --lcl-lighttext: var(--lcl-main);
+  --lcl-secondtext: rgba(60, 60, 67, 0.6);
+  --lcl-scrollbar: rgba(60, 60, 67, 0.4);
+  --lcl-card-btn-bg: #edf0f7;
+  --lcl-post-blockquote-bg: #fafcff;
+  --lcl-post-tabs-bg: #f2f5f8;
+  --lcl-secondbg: #f1f3f8;
+  --lcl-shadow-nav: 0 5px 12px -5px rgba(102, 68, 68, 0.05);
+  --lcl-card-bg: #fff;
+  --lcl-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+  --lcl-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+  --lcl-card-border: #e3e8f7;
+}
+
+[data-theme="dark"] {
+  --global-bg: #191919;
+  --lcl-theme: #0084ff;
+  --lcl-theme-deep: #0076e5;
+  --lcl-theme-op: #0084ff23;
+  --lcl-blue: #0084ff;
+  --lcl-red: #ff3842;
+  --lcl-pink: #ff7c7c;
+  --lcl-green: #57bd6a;
+  --lcl-fontcolor: #f7f7fa;
+  --lcl-background: #18171d;
+  --lcl-reverse: #fff;
+  --lcl-maskbg: rgba(0, 0, 0, 0.6);
+  --lcl-maskbgdeep: rgba(0, 0, 0, 0.85);
+  --lcl-hovertext: #0a84ff;
+  --lcl-ahoverbg: #fff;
+  --lcl-lighttext: #f2b94b;
+  --lcl-secondtext: #a1a2b8;
+  --lcl-scrollbar: rgba(200, 200, 223, 0.4);
+  --lcl-card-btn-bg: #30343f;
+  --lcl-post-blockquote-bg: #000;
+  --lcl-post-tabs-bg: #121212;
+  --lcl-secondbg: #30343f;
+  --lcl-shadow-nav: 0 5px 20px 0px rgba(28, 28, 28, 0.4);
+  --lcl-card-bg: #1d1b26;
+  --lcl-shadow-lightblack: 0 5px 12px -5px rgba(102, 68, 68, 0);
+  --lcl-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
+  --lcl-card-border: #42444a;
+}
+
+
+#bbTimeList {
+    background: var(--lcl-white);
+    color: var(--lcl-fontcolor);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    box-shadow: var(--lcl-shadow-lightblack);
+    display: flex;
+    transition: all 0.3s ease 0s;
+    margin: 1rem auto 0;
+    border: var(--style-border);
+    align-items: center;
+    height: 50px;
+    width: 100%;
+  }
+  [data-theme="dark"] #bbTimeList {
+    background: #000 !important;
+  }
+  #bbtalk {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #bber-talk {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+  .bber-logo {
+    font-size: 1.5rem;
+    line-height: 22px;
+    margin-right: 1rem;
+    transition: all 0.3s ease 0s;
+    cursor: url(/img/x2.cur), auto !important;
+  }
+  
+  .bber-gotobb {
+    line-height: 25px;
+    margin-left: 1rem;
+    transition: all 0.3s ease 0s;
+    cursor: url(/img/x2.cur), auto !important;
+  }
+  
+  #bber-talk .li-style {
+    width: 100%;
+    max-width: 100%;
+    height: 25px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 0.3s;
+    font-weight: 700;
+    margin: auto;
+    cursor: url(/img/x2.cur), auto !important;
+    white-space: nowrap;
+  }
+  
+  #bbTimeList:hover {
+    border: var(--style-border-hover);
+    box-shadow: var(--lcl-shadow-main);
+  }
+  
+  /* 文章页H1-H6图标样式效果 */
+  .bbTimeList .bber-logo {
+    -webkit-animation: rotate 1.6s linear infinite;
+    animation: rotate 1.6s linear infinite;
+  }
+  @-webkit-keyframes rotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(-1turn);
+      transform: rotate(-1turn);
+    }
+  }
+  @keyframes rotate {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(-1turn);
+      transform: rotate(-1turn);
+    }
+  }
