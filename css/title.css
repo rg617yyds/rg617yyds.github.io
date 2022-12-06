@@ -1,18 +1,1 @@
-/* 网站标题、副标题闪光 */
-#page-header #site-title,
-#page-header #site-subtitle {
-  color: rgb(255, 255, 255);
-  text-shadow: rgb(255, 255, 255) 0px 0px 10px, rgb(255, 255, 255) 0px 0px 20px,
-    rgb(255, 0, 222) 0px 0px 30px, rgb(255, 0, 222) 0px 0px 40px,
-    rgb(255, 0, 222) 0px 0px 70px, rgb(255, 0, 222) 0px 0px 80px,
-    rgb(255, 0, 222) 0px 0px 100px;
-}
-#page-header #site-title:hover,
-#page-header #site-subtitle:hover {
-  color: rgb(255, 255, 255);
-  text-shadow: rgb(255, 255, 255) 0px 0px 10px, rgb(255, 255, 255) 0px 0px 20px,
-    rgb(255, 255, 255) 0px 0px 30px, rgb(0, 255, 255) 0px 0px 40px,
-    rgb(0, 255, 255) 0px 0px 70px, rgb(0, 255, 255) 0px 0px 80px,
-    rgb(0, 255, 255) 0px 0px 100px;
-}
-
+#page-header #site-subtitle,#page-header #site-title{color:#fff;text-shadow:#fff 0 0 10px,#fff 0 0 20px,#ff00de 0 0 30px,#ff00de 0 0 40px,#ff00de 0 0 70px,#ff00de 0 0 80px,#ff00de 0 0 100px}#page-header #site-subtitle:hover,#page-header #site-title:hover{color:#fff;text-shadow:#fff 0 0 10px,#fff 0 0 20px,#fff 0 0 30px,#0ff 0 0 40px,#0ff 0 0 70px,#0ff 0 0 80px,#0ff 0 0 100px}
