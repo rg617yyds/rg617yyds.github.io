@@ -1,0 +1,859 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Vue2脚手架 | 十七</title><meta name="keywords" content="Vue"><meta name="author" content="十七"><meta name="copyright" content="十七"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="脚手架文件结构:|——node_modules  |——public |    |—— favicon.ico: 页签图标  |    |—— index.html: 主页面  |     |—— src |        |—— assets:存放静态资源  |        |    |__ logo.png |        |—— component:存放组件  |        |">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue2脚手架">
+<meta property="og:url" content="https://lcl.shiqi217.com/2022/08/31/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue2%E8%84%9A%E6%89%8B%E6%9E%B6%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="十七">
+<meta property="og:description" content="脚手架文件结构:|——node_modules  |——public |    |—— favicon.ico: 页签图标  |    |—— index.html: 主页面  |     |—— src |        |—— assets:存放静态资源  |        |    |__ logo.png |        |—— component:存放组件  |        |">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lcl.shiqi217.com/img/hmbb.jfif">
+<meta property="article:published_time" content="2022-08-31T09:59:15.643Z">
+<meta property="article:modified_time" content="2022-11-06T13:59:46.432Z">
+<meta property="article:author" content="十七">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lcl.shiqi217.com/img/hmbb.jfif"><link rel="shortcut icon" href="/img/siteicon/18.png"><link rel="canonical" href="https://lcl.shiqi217.com/2022/08/31/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue2%E8%84%9A%E6%89%8B%E6%9E%B6%E6%80%BB%E7%BB%93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//sdk.51.la"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="#49b1f5"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/19.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/16.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/15.png"/><link rel="mask-icon" href="/img/siteicon/19.png" color="#5bbad5"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>!function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JrXYaahohQYKcLDl",ck:"JrXYaahohQYKcLDl",hashMode:true});
+</script><script>!(function(c,i,e,b){
+var h=i.createElement("script");
+var f=i.getElementsByTagName("script")[0];
+h.type="text/javascript";
+h.crossorigin=true;
+h.onload=function(){new c[b]["Monitor"]().init({id:"Js2BMYEbe0YNCQH4"});};
+f.parentNode.insertBefore(h,f);h.src=e;})(window,document,"https://sdk.51.la/perf/js-sdk-perf.min.js","LingQue");</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 十七","link":"链接: ","source":"来源: 十七","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vue2脚手架',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-06 21:59:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom/twikoo_beautify.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/iconqq.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/essay_page/essay_page.css"><link rel="stylesheet" href="/css/essay_page/home_essay_bar.css"><link rel="stylesheet" href="/css/about.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/aplayer.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom/fixed_comment.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/tongzhi.styl" /><link rel="stylesheet" href="/css/rightmenu.css"><link rel="stylesheet" href="/css/iconfont.css"><link rel="stylesheet" href="/css/custom/progress_bar.css"><style id="barragesColor"></style><link rel="stylesheet" href="/css/commentBarrage.css"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiper.min.css"><link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css"><script data-pjax src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.js"></script><link rel="stylesheet" href="/css/title.css"><link rel="stylesheet" href="/css/universe.css"><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-blog@2.0.3/css/runtime/runtime.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-double-row-display@1.00/cardlistpost.min.css"/>
+<style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
+  white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
+<link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='screen'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://cdn.cbd.int/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="十七" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/rg617yyds/lcl-img@master/urllcl/toux.jpg" data-lazy-src="https://cdn.staticaly.com/gh/rg617yyds/lcl-img@master/urllcl/toux.jpg"/></div></div><div id="web_bg"></div><div id="an_music_bg"></div><div id="web_bg" style="background:url(/img/hmbb1-1.png);background-attachment: local;background-position: center;background-size: cover;background-repeat: no-repeat;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/myVia.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 本站</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 时间轴</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="fa-fw fas fa-tags faa-tada"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="fa-fw fa-fw fas fa-shapes faa-tada faa-tada"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/qiehuan/"><i class="fa-fw fas fa-image fa-fw faa-tada"></i><span> 壁纸</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle"></use></svg><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gossip/"><i class="fa-fw fab fa-artstation faa-tada"></i><span> 日月匆匆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bilibili1"></use></svg><span> 追番</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/wallpaper/"><i class="fa-fw fa-fw fa-solid fa-images faa-tada"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 社交</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="fa-fw fa-fw fab fa-galactic-republic faa-tada"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="fa-fw fas fa-envelope faa-tada"></i><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="fa-fw fas fa-link faa-tada"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="fa-fw fa-fw fa fa-comments faa-tada"></i><span> 即可短文</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><!-- 复制引入  -->
+<!-- 引入VUE -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<!-- 引入样式 -->
+<script src="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/lib/index.js"></script>
+<!-- 引入组件库 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/element-ui@2.15.6/packages/theme-chalk/lib/index.css"><header class="post-bg" id="page-header" style="background-image: url('/./img/hmbb.jfif')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">十七</a></span><div class="mask-name-container"><center id="name-container"><a id="page-name" href="javascript:rmf.scrollToTop()">PAGE_NAME</a></center></div><div id="menus"><div class="nav-button" id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i></a></div><div class="nav-button" id="darkmode_navswitch"><a class="darkmode_switchbutton" type="button" title="浅色和深色模式转换" onclick="rmf.switchDarkMode()"><i class="fas fa-adjust"></i></a></div><div><a class="site-page social-icon search" href="javascript:;" onclick="toggleWinbox()" title="切换背景-换一种感觉。"><i class="fas fa-image fa-fw"></i></a></div><div class="nav-button" id="nav-totop"><a class="totopbtn"><i class="fas fa-arrow-up"></i><span id="percent" onclick="btf.scrollToDest(0,500)">0</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 本站</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="fa-fw fas fa-archive faa-tada"></i><span> 时间轴</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="fa-fw fas fa-tags faa-tada"></i><span> 标签</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="fa-fw fa-fw fas fa-shapes faa-tada faa-tada"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/qiehuan/"><i class="fa-fw fas fa-image fa-fw faa-tada"></i><span> 壁纸</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 生活</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-yinle"></use></svg><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/gossip/"><i class="fa-fw fab fa-artstation faa-tada"></i><span> 日月匆匆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-bilibili1"></use></svg><span> 追番</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/wallpaper/"><i class="fa-fw fa-fw fa-solid fa-images faa-tada"></i><span> 相册</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 社交</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="fa-fw fa-fw fab fa-galactic-republic faa-tada"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="fa-fw fas fa-envelope faa-tada"></i><span> 留言板</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="fa-fw fas fa-link faa-tada"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="fa-fw fa-fw fa fa-comments faa-tada"></i><span> 即可短文</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="/about/"><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vue2脚手架</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-31T09:59:15.643Z" title="发表于 2022-08-31 17:59:15">2022-08-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-06T13:59:46.432Z" title="更新于 2022-11-06 21:59:46">2022-11-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>24分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vue2脚手架"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2022/08/31/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue2%E8%84%9A%E6%89%8B%E6%9E%B6%E6%80%BB%E7%BB%93/#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="脚手架文件结构"><a href="#脚手架文件结构" class="headerlink" title="脚手架文件结构:"></a>脚手架文件结构:</h2><pre><code>|——node_modules 
+|——public
+|    |—— favicon.ico: 页签图标 
+|    |—— index.html: 主页面 
+|     |—— src
+|        |—— assets:存放静态资源 
+|        |    |__ logo.png
+|        |—— component:存放组件 
+|        |    |__  HelloWorld.vue 
+|        |—— App.vue:汇总所有组件 
+|        |—— main.js:入口文件
+|—— .gitignore: git版本管制忽略的配置
+|—— babel.config.js:babel的配置文件
+|—— package.json:用包配置文件
+|—— README.md:应用描述文件
+|—— package-lock.json:包版本控制文件
+</code></pre><h2 id="关于不同版本的Vue"><a href="#关于不同版本的Vue" class="headerlink" title="关于不同版本的Vue:"></a>关于不同版本的Vue:</h2><ul>
+<li>vue.js与vue.runtime.xxx.js的区别:<br>(1).vue.js是完整版的Vue，包含:核心功能+模板解析器。<br>(2).vue.runtime.xxx.js是运行版的Vue，只包含:核心功能;没有模板解析器。</li>
+<li>因为vue.runtime.xxx.js没有模板解析器，所以不能使用template配置项，需要使用<br>render数接收到的createElement函数去指定具体内容。</li>
+</ul>
+<h2 id="vue-config-js配置文件"><a href="#vue-config-js配置文件" class="headerlink" title="vue.config.js配置文件"></a>vue.config.js配置文件</h2><pre><code>&gt; 使用vue inspect &gt; output.js 可以查看到Vue脚手架的默认配置。
+&gt; 使用vue.config.js 可以对脚手架进行个性化定制，详情见: https://cli.vuejs.org/zh
+</code></pre><h2 id="ref属性"><a href="#ref属性" class="headerlink" title="ref属性"></a>ref属性</h2><pre><code>    1.被用来给元素或子组件注册引用信息 (id的替代者)
+    2.应用在html标签上获取的是真实DOM元素，应用在组件标签上是组件实例对象VueComponent(vc)
+    3.使用方式:
+            打标识:&lt;h1 ref=&quot;xxx&quot;&gt;.....&lt;/h1&gt; 或 &lt;School ref=&quot;xxx&quot;&gt;&lt;/School&gt;
+            获取: this.$refs.xxx
+</code></pre><h2 id="配置项props"><a href="#配置项props" class="headerlink" title="配置项props"></a>配置项props</h2><pre><code>    功能: 让组件接收外部传过来的数据
+    (1)传递数据:
+            &lt;Demo name=&quot;xxx&quot;/&gt;
+    (2)接收数据:
+            第一种方式(只接收): 
+                    props:[&#39;name&#39;]
+            第二种方式(接收，并限制类型): 
+                    props:&#123;
+                        name:String
+                        &#125;
+            第三种方式(限制类型、限制必要性、指定默认值): 
+                    props:&#123; 
+                           name:&#123;
+                              type:String，//类型
+                              required:true，//必要性 
+                              default:&#39;老王&#39; //默认值
+                           &#125;
+                    &#125;
+    备注:props是只读的，Vue底层会监测你对props的修改，如果进行了修改，就会发出警告，
+         若业务需求确实需要修改，那么请复制props的内容到data中一份，
+            然后去修改data中的数据。   
+         props 比 data 先解析到页面，
+</code></pre><h2 id="mixin-混入"><a href="#mixin-混入" class="headerlink" title="mixin(混入)"></a>mixin(混入)</h2><pre><code>    功能:可以把多个组件共用的配置提取成一个混入对象
+    使用方式:
+            第一步定义混合，例如:
+                    &#123;
+                      data()&#123;....&#125;, 
+                      methods:&#123;....&#125;,
+                      ....
+                    &#125;
+            第二步使用混入，例如:
+                    (1)全局混入:Vue.mixin(xxx)
+                    (2)局部混入:mixins:[&#39;xxx&#39;]
+</code></pre><h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>​        功能:用于增强Vue<br>​        本质:包含instal1方法的一个对象，install的第一个参数是Vue，<br>​             第二个以后的参数是插件使用者传递的数据。<br>​        定义插件:I<br>​                对象.install = function(Vue,options){<br>​                // 1.添加全局过滤器<br>​                   Vue.filter(….)<br>​                // 2.添加全局指令<br>​                   Vue.directive(….)<br>​                // 3.配置全局混入(合)<br>​                   Vue.mixin(….)<br>​                // 4.添加实例方法<br>​                   Vue.prototype.$myMethod = function() {..}<br>​                   Vue.prototype $myProperty = xxxx<br>​                }<br>​                使用插件:Vue.use()</p>
+<h2 id="scoped样式"><a href="#scoped样式" class="headerlink" title="scoped样式"></a>scoped样式</h2><pre><code>    作用：让样式在局部生效，防止冲突
+    写法：&lt;style scoped&gt;&lt;/style&gt;
+    在style 中 可更换其他样式 lang=&quot;css&quot;  不写lang 默认是css
+</code></pre><h2 id="总结TodoList案例"><a href="#总结TodoList案例" class="headerlink" title="总结TodoList案例"></a>总结TodoList案例</h2><pre><code>    1.组件化编码流程:I
+            (1)拆分静态组件:组件要按照功能点拆分，命名不要与html元素冲突。
+            (2)实现动态组件:考虑好数据的存放位置，数据是一个组件在用，还是一些组件在用:
+                    1)一个组件在用:放在组件自身即可。
+                    2).一些组件在用:放在他们共同的父组件上(状态提升)。
+            (3)实现交互:从绑定事件开始。
+    2. props适用于:
+       (1)父组件==&gt;子组件通信
+       (2)子组件==&gt;父组件通信  (要求父先给子一个函数)
+    3.使用v-model时要切记:v-model绑定的值不能是props传过来的值，
+            因为props是不可以修改的!
+    4.props传过来的若是对象类型的值，修改对象中的属性时Vue不会报错，
+            但不推荐这样做。
+
+    组件化编码流程(通用)
+            1.实现静态组件:抽取组件，使用组件实现静态页面效果
+            2.展示动态数据:
+                    2.1.数据的类型、名称是什么?
+                    2.2.数据保存在哪个组件?
+            3交互-- 从绑定事件监听开始
+</code></pre><h2 id="webStorage"><a href="#webStorage" class="headerlink" title="webStorage"></a>webStorage</h2><p>​        1.存储内容大小一般支持5MB左右(不同浏览器可能还不一样)<br>​        2.浏览器端通过 Window.sessionStorage 和 Window.localStorage 属性来实现本地存储机制。<br>​        3.相关API:<br>​                1.xxxxxStorage.setItem(‘key’,’value’);<br>​                     该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值<br>​                2.xxxxxStorage.getItem(‘person’);<br>​                     该方法接受一个键名作为参数，返回键名对应的值。<br>​                3.xxxxxStorage.removeItem(‘key’);<br>​                     该方法接受一个键名作为参数，并把该键名从存储中删除。</p>
+<pre><code>            4. xxxxxStorage.clear()
+                 该方法会清空存储中的所有数据。
+            4.备注:
+                  1.SessionStorage存储的内容会随着浏览器窗口关闭而消失。
+                  2.LocalStorage存储的内容，需要手动清除才会消失
+                  3.xxxxxStorage.getItem(xxx)如果xxx对应的value获取不到，那么getitem的返回值是null
+                  4.JSON.parse(null)的结果依然是null
+</code></pre><h2 id="组件的自定义事件"><a href="#组件的自定义事件" class="headerlink" title="组件的自定义事件"></a>组件的自定义事件</h2><p>1.一种组件间通信的方式，适用于:<strong>子组件==&gt;父组件</strong></p>
+<p>2.使用场景:A是父组件，B是子组件，B想给A传数据，那么就要在A中给B绑定自定义事件(<em><strong>事件的回调在A中</strong></em>)。</p>
+<p>3.绑定自定义事件:<br>        1.第一种方式，在父组件中: <code>&lt;Demo @dakai=&quot;test&quot;/&gt;</code> 或 <code>&lt;Demo v-on:dakai=&quot;test&quot;/&gt;</code><br>        2第二种方式，在父组件中:<br>                <Demo ref="demo"/><br>                …..<br>                mounted(){<br>                this.$refs.xxx.$on(‘’,this.test)<br>                }</p>
+<pre><code>    3.若想让自定义事件只能触发一次，可以使用 once 修饰符，或 $once 方法。
+</code></pre><p>4.触发自定义事件: <code>this.$emit(&#39;dakai&#39;,数据)</code></p>
+<p>5.解绑自定义事件 <code>this.$off(&#39;dakai&#39;)</code></p>
+<p>6.组件上也可以绑定原生DOM事件，需要使用native修饰符。</p>
+<p>7.注意:通过this.$refs.xxx.$on(dakai，回调)绑定自定义事件时，<br>   回调<strong>要么配置在methods中，要么用箭头函数</strong>，否则this指向会出问题!</p>
+<h2 id="全局事件总线-GlobalEventBus"><a href="#全局事件总线-GlobalEventBus" class="headerlink" title="全局事件总线(GlobalEventBus)"></a>全局事件总线(GlobalEventBus)</h2><p>   1一种组件间通信的方式，适用于任意组件间通信。</p>
+<p>   2.安装全局事件总线:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">          .....</span><br><span class="line">          <span class="title function_">beforeCreate</span>(<span class="params"></span>)&#123;</span><br><span class="line">              <span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$bus</span>=<span class="variable language_">this</span>  <span class="comment">//安装全局事件总线，$bus就是当前应用的vm</span></span><br><span class="line">          &#125;，</span><br><span class="line">          .....</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+<p>   3.使用事件总线:</p>
+<p>​        1接收数据:A组件想接收数据，则在A组件中给$bus绑定自定义事件，事件的<strong>回调留在A组件自身</strong></p>
+<pre><code>    methods()&#123; 
+        demo(data)(.....)
+    &#125;
+    ....
+    mounted()&#123;
+        this.$bus.$on(&#39;xxxx&#39;,this.demo)
+    &#125;
+
+    2.提供数据: `this.$bus.$emit(&#39;xxxx&#39; , 数据)`
+</code></pre><p>   4.最好在beforeDestroy钩子中，用$off去解绑<strong>当前组件所用到的</strong>事件。</p>
+<h2 id="消息订阅与发布-pubsub"><a href="#消息订阅与发布-pubsub" class="headerlink" title="消息订阅与发布(pubsub)"></a>消息订阅与发布(pubsub)</h2><p>1一种组件间通信的方式，适用于<strong>任意组件间通信</strong>。</p>
+<p>2.使用步骤:<br>    1.安装 <code>pubsub: npm i pubsub-js</code><br>    2.引入: <code>import pubsub from &#39;pubsub-js&#39;</code></p>
+<p>3.接收数据:A组件想接收数据，则在A组件中订阅消息，订阅的<strong>回调留在A组件自身</strong>。</p>
+<pre><code>    methods()&#123;
+        demo(data)&#123;......&#125;
+        &#125;
+    ......    
+    mounted() &#123;
+    this.pid = pubsub.subscribe(&#39;xxx&#39;,this.demo)//订阅消息
+    &#125;
+</code></pre><p>4.提供数据: <code>pubsub.publish(xxx&#39;,数据)</code><br>5.最好在beforeDestrov钩子中，用<code>PubSubunsubscribe(pid)</code>去<span style="color:red">取消订阅</span></p>
+<h2 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick*"></a>nextTick*</h2><p>1.语法: <code>this.$nextTick(回调函数)</code> </p>
+<p>2.作用: 在下一次 DOM 更新结束后执行其指定的回调。</p>
+<p>3.什么时候用: 当改变数据后，要基于更新后的新DOM进行某些操作时，要在nextTick所指定的回调函数中执行。</p>
+<h2 id="Vue封装的过度与动画"><a href="#Vue封装的过度与动画" class="headerlink" title="Vue封装的过度与动画"></a>Vue封装的过度与动画</h2><p>1.作用:在插入、更新或移除DOM元素时，在合适的时候给元素添加样式类名。</p>
+<p>2.图示:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="C:\Users\86173\Desktop\vue_test\img\动画.png" style="zoom:67%;" /></p>
+<p>3.写法:<br>            1.准备好样式:<br>                    <strong>· </strong>元素进入的样式:</p>
+<p>​                         1 v-enter:进入的起点</p>
+<p>​                         2.v-enter-active:进入过程中</p>
+<p>​                         3v-enter-to:进入的终点</p>
+<p>​              <strong>·</strong> 元素离开的样式:</p>
+<p>​                        1.v-leave:离开的起点</p>
+<p>​                        2.v-leave-active:离开过程中</p>
+<p>​                        3v-leave-to:离开的终点</p>
+<p>​                总结：进入的起点 = 离开的终点    进入的终点 = 离开的起点</p>
+<p>​                补充： 在行内中添加 修饰词：引用一些动画库可以实现一些别人定义好的动画</p>
+<p>​                        <code>enter-active-class=&quot;进入过程中动画&quot;</code></p>
+<p>​                        <code>leave-active-class=&quot;离开过程中动画&quot;</code></p>
+<p>​        2.使用<code>&lt;transition&gt;</code>包裹要过度的元素，并配置name属性:    </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;transition name=<span class="string">&quot;hello&quot;</span>&gt;</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-show</span>=<span class="string">&quot;isShow&quot;</span>&gt;</span>你好啊!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+<p>​        3.备注:若有多个元素需要过度，则需要使用: <code>&lt;transition-group&gt;</code>，</p>
+<p>​        且每个元素都要指定<code>key</code>值。</p>
+<p>​    4.可以通过调用动画库实现动画效果：</p>
+<p>​        首先第一步安装：<code>npm install animate.css</code></p>
+<p>​        第二步：引用animate库</p>
+<p>​                在script中 引用：<code>import &#39;animate.css&#39;</code></p>
+<p>​        第三步：打开此网站： <a target="_blank" rel="noopener" href="https://animate.style/">https://animate.style/</a>        </p>
+<p>​                可以看到一些动态的动画</p>
+<p>​        第四步：只需要在 <transition name="animate__animated animate__bounce">    </p>
+<p>​                    name中引入    <code>animate__animated animate__bounce</code></p>
+<p>​        第五步：在<code>enter-active-class</code>写入进入过程中的动画名</p>
+<p>​                            例如：<code>enter-active-class=“animate__bounceInRight”</code></p>
+<p>​                        在 <code>leave-active-class</code>写入离开过程中的动画名</p>
+<p>​                            例如：<code>leave-active-class=&quot;animate__bounceOutDown&quot;</code></p>
+<p>​        </p>
+<h2 id="vue脚手架配置代理"><a href="#vue脚手架配置代理" class="headerlink" title="vue脚手架配置代理"></a>vue脚手架配置代理</h2><h6 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h6><p>​         在vueconfigjs中添加如下配置:</p>
+<pre><code>    devServer:&#123;
+    proxy:&quot;http://localhost:5000
+    &#125;
+</code></pre><p>说明:</p>
+<p>​        1.优点:   配置简单，请求资源时直接发给前端(8080)即可。</p>
+<p>​        2.缺点:   不能配置多个代理，不能灵活的控制请求是否走代理</p>
+<p>​        3.工作方式:   若按照上述配置代理，当请求了前端不存在的资源时，那么该请求会转发给服务器(优先匹配前端资源)</p>
+<h6 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h6><p>​        编写vueconfigjs配置具体代理规则:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">	<span class="attr">devServer</span>: &#123; </span><br><span class="line">	  <span class="attr">proxy</span>:&#123;</span><br><span class="line">		<span class="string">&#x27;/api1&#x27;</span>:&#123; <span class="comment">//匹配所有以/api1&#x27;开头的请求路径</span></span><br><span class="line">			<span class="attr">target</span>:<span class="string">&#x27;http://localhost:5000&#x27;</span>,<span class="comment">// 代理目标的基础路径 </span></span><br><span class="line">			<span class="attr">changeOrigin</span>: <span class="literal">true</span>,</span><br><span class="line">			<span class="attr">pathRewrite</span>:&#123;<span class="string">&#x27;^/api1&#x27;</span>:<span class="string">&#x27;&#x27;</span>&#125;</span><br><span class="line">		&#125;，</span><br><span class="line">		<span class="string">&#x27;/api2&#x27;</span>:&#123;<span class="comment">// 匹配所有以&#x27;/api2&quot;开头的请求路径</span></span><br><span class="line">			<span class="attr">target</span>:<span class="string">&#x27;http://localhost:&#x27;</span><span class="number">5001</span><span class="string">&#x27;,/代理目标的基础路径 </span></span><br><span class="line"><span class="string">			changeOrigin: true,</span></span><br><span class="line"><span class="string">			pathRewrite:&#123;&#x27;</span>^/api2<span class="string">&#x27;:&#x27;</span><span class="string">&#x27;&#125;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">/*</span></span><br><span class="line"><span class="string">	changeOrigin设置为true时，服务器收到的请求头中的host为:localhost:5000 (撒谎)</span></span><br><span class="line"><span class="string">	changeOrigin设置为false时，服务器收到的请求头中的host为:localhost:8080  (不撒谎)</span></span><br><span class="line"><span class="string">	changeOrigin默认值为true</span></span><br><span class="line"><span class="string">*/</span></span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<pre><code>1. 优点： 可以配置多个代理，且可以灵活的控制请求是否走代理
+1. 缺点： 配置略微繁琐，请求资源时必须加上前缀
+</code></pre><h2 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h2><p>​        1.作用:让父组件可以向子组件指定位置插入html结构，也是一种组件间通信的方式，</p>
+<p>​            适用于<strong>父组件===&gt;子组件。</strong><br>​        2.分类:默认插槽、具名插槽、作用域插槽<br>​        3.使用方式:<br>​                1.默认插槽:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">父组件中:<span class="string">`</span></span><br><span class="line"><span class="string">	&lt;Category&gt;`</span></span><br><span class="line">		&lt;div&gt;html结构<span class="number">1</span>&lt;/div&gt;</span><br><span class="line">	&lt;/<span class="title class_">Category</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="string">`子组件中:`</span></span><br><span class="line">	<span class="string">`&lt;template&gt;`</span></span><br><span class="line"><span class="string">`		&lt;div&gt;`</span></span><br><span class="line">		<span class="string">`	&lt;!--定义插槽 --&gt;`</span></span><br><span class="line">		<span class="string">`	&lt;slot&gt;插槽默认内容...&lt;/slot&gt;</span></span><br><span class="line"><span class="string">		&lt;/div&gt;`</span></span><br><span class="line"><span class="string">`	&lt;/template&gt;`</span></span><br></pre></td></tr></table></figure>
+<p>​            2.具名插槽:</p>
+<p>​    </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">	父组件中:</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">Category</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">template</span> <span class="attr">slot</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">div</span>&gt;</span>html结构1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			</span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">template</span> <span class="attr">v-slot:footer</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">div</span>&gt;</span>html结构2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">Category</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">子组件中:</span><br><span class="line"></span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="comment">&lt;!--定义插槽 --&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">&quot;center&quot;</span>&gt;</span>插槽默认内容...<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">&quot;footer&quot;</span>&gt;</span>插槽默认内容...<span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>3.作用域插槽:</strong><br>        1.理解:<strong>数据在组件的自身，但根据数据生成的结构需要组件的使用者来决定</strong>。</p>
+<p>​                (games数据在Category组件中，但使用数据所遍历出来的结构由App组件决定)<br>​        2.具体编码:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">父组件中:</span><br><span class="line">    	<span class="language-xml"><span class="tag">&lt;<span class="name">Category</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        	<span class="tag">&lt;<span class="name">template</span> <span class="attr">scope</span>=<span class="string">&quot;scopeData&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            	<span class="comment">&lt;!--生成的是ul列表 --&gt;</span></span></span><br><span class="line"><span class="language-xml">            	<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            		<span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">&quot;g in scopeData.games&quot;</span><span class="attr">:key</span>=<span class="string">&quot;g&quot;</span>&gt;</span>&#123;&#123;g&#125;&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            	<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        	<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Category</span>&gt;</span></span></span><br><span class="line">        </span><br><span class="line">    	<span class="language-xml"><span class="tag">&lt;<span class="name">Category</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        	<span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">&quot;scopeData&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            	<span class="comment">&lt;!--生成的是h4标题 --&gt;</span></span></span><br><span class="line"><span class="language-xml">            	<span class="tag">&lt;<span class="name">h4</span> <span class="attr">v-for</span>=<span class="string">&quot;g in scopeData.games&quot;</span><span class="attr">:key</span>=<span class="string">&quot;g&quot;</span>&gt;</span>&#123;&#123;g&#125;&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Category</span>&gt;</span></span></span><br><span class="line">        </span><br><span class="line">子组件中:</span><br><span class="line">    	<span class="language-xml"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            	<span class="tag">&lt;<span class="name">slot</span> <span class="attr">:games</span>=<span class="string">&quot;games&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    	<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line">    	</span><br><span class="line">    	<span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        	<span class="keyword">export</span> <span class="keyword">default</span>&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            	<span class="attr">name</span>:<span class="string">&#x27;Category&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            	<span class="comment">//数据在子组件自身 </span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            	<span class="attr">props</span>:[<span class="string">&#x27;title&#x27;</span>], </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            	<span class="title function_">data</span>(<span class="params"></span>)&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            		<span class="keyword">return</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                		<span class="attr">games</span>:[<span class="string">&#x27;和平精英&#x27;</span>,<span class="string">&#x27;穿越火线&#x27;</span>,<span class="string">&#x27;王者荣耀&#x27;</span>,<span class="string">&#x27;英雄联盟&#x27;</span>]</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        			&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        		&#125;，</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        	&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><p>vuex是什么</p>
+<p>​        1.概念:专门在Vue中实现集中式状态 (数据) 管理的一个Vue插件，对vue应用中</p>
+<p>​                多个组件的共享状态进行集中式的管理(读/写)，也是一种组件间通信的方式，且适用于任意组件间通信。</p>
+<p>​        2. Github地址:  <a target="_blank" rel="noopener" href="https://githubcom/vuejs/vuex">https://githubcom/vuejs/vuex</a></p>
+<h4 id="1、什么时候使用Vuex"><a href="#1、什么时候使用Vuex" class="headerlink" title="1、什么时候使用Vuex"></a>1、<strong>什么时候使用Vuex</strong></h4><p>​        1.多个组件依赖于同一状态，<br>​        2.来自不同组件的行为需要变更同一状态</p>
+<p><strong>何时使用?</strong></p>
+<p>​            多个组件需要共享数据时</p>
+<h4 id="2、搭建vuex环境"><a href="#2、搭建vuex环境" class="headerlink" title="2、搭建vuex环境"></a><strong>2、搭建vuex环境</strong></h4><p>​        1.创建文件:<code>src/store/index.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入vue核心库</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span><span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="comment">//引入Vuex</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vuex</span> <span class="keyword">from</span><span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="comment">//应用Vuex插件 </span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">Vuex</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//准备actions对象一响应组件中用户的动作 </span></span><br><span class="line"><span class="keyword">const</span> actions=&#123;&#125;</span><br><span class="line">/准备mutations对象一修改state中的数据 </span><br><span class="line"><span class="keyword">const</span> mutations=&#123;&#125;</span><br><span class="line"><span class="comment">//准备state对象一-保存具体的数据 </span></span><br><span class="line"><span class="keyword">const</span> state =&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建并暴露store</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">	actions, </span><br><span class="line">	mutations, </span><br><span class="line">	state</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>2.在<code>main.js</code>中创建vm时传入<code>store</code>配置项</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">......</span><br><span class="line"><span class="comment">//引入store</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span><span class="string">&#x27;./store&#x27;</span></span><br><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建vm </span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">	<span class="attr">el</span>:<span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">	<span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>), </span><br><span class="line">	store</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="C:\Users\86173\AppData\Roaming\Typora\typora-user-images\image-20220822230256023.png" alt="image-20220822230256023" style="zoom:50%;" /></p>
+<h4 id="3、基本使用"><a href="#3、基本使用" class="headerlink" title="3、基本使用"></a>3、基本使用</h4><p>​    1.初始化数据、配置 <code>actions</code> 、配置 <code>mutations</code> ， 操作文件 <code>store.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入Vue核心库</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="comment">//引入vuex</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vuex</span> <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="comment">//引用Vuex </span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">Vuex</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> actions =&#123;</span><br><span class="line">		<span class="comment">//响应组件中加的动作 </span></span><br><span class="line">		<span class="title function_">jia</span>(<span class="params">context,value</span>)&#123;</span><br><span class="line">			<span class="comment">//console.log(actions中的jia被调用了&#x27;,miniStore,value) </span></span><br><span class="line">			context.<span class="title function_">commit</span>(<span class="string">&#x27;JIA&#x27;</span>,value)</span><br><span class="line">			&#125;，</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line"><span class="keyword">const</span> mutations=&#123;</span><br><span class="line">		<span class="comment">//执行加</span></span><br><span class="line">		<span class="title function_">JIA</span>(<span class="params">state,value</span>)&#123;</span><br><span class="line">		<span class="comment">//console.log(&#x27;mutations中的JIA被调用了&#x27;,state,value) </span></span><br><span class="line">		state.<span class="property">sum</span> += value</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line"><span class="comment">//初始化数据</span></span><br><span class="line"><span class="keyword">const</span> state=&#123;</span><br><span class="line">	<span class="attr">sum</span>:<span class="number">0</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//创建并暴露store</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">		actions,</span><br><span class="line">		mutations,</span><br><span class="line">		state</span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure>
+<p>2.组件中读取vuex中的数据: <code>$store.state.sum</code></p>
+<p>3.组件中修改vuex中的数据: <code>$store.dispatch(&#39;action中的方法名&#39;，数据)</code></p>
+<p>​    或    <code>$store.commit(&#39;mutations中的方法名&#39;，数据)</code></p>
+<p><strong>备注:</strong></p>
+<p>​    若没有网络请求或其他业务逻辑，组件中也可以越过actions，即不写 <code>dispatch</code>，直接编写 <code>commit</code></p>
+<h4 id="4、getters的使用"><a href="#4、getters的使用" class="headerlink" title="4、getters的使用"></a>4、getters的使用</h4><ol>
+<li><p>概念:当state中的数据需要经过加工后再使用时，可以使用getters加工。</p>
+<p>​    如果逻辑复杂，并且逻辑要复用推荐 <code>getters</code></p>
+<ol>
+<li>在<code>store.js</code>中追加<code>getters</code>配置</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">......</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getters = &#123;</span><br><span class="line">	<span class="title function_">bigSum</span>(<span class="params">state</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> state.<span class="property">sum</span>*<span class="number">10</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//创建并暴露store</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title function_">store</span>(&#123;</span><br><span class="line">	......</span><br><span class="line">	getters</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>3.组件中读取数据：<code>$store.getters.bigSum</code></p>
+<h4 id="5、四个map方法的使用"><a href="#5、四个map方法的使用" class="headerlink" title="5、四个map方法的使用"></a>5、四个map方法的使用</h4><p>​        1.<strong>mapState方法</strong>:用于帮助我们映射<code>state</code>中的数据为计算属性</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">	//借助mapState生成计算属性:sum、school、subject(对象写法)</span><br><span class="line">	...mapState(&#123;sum:&#x27;sum&#x27;,school:&#x27;school&#x27;,subject:&#x27;subject&#x27;&#125;).</span><br><span class="line">	</span><br><span class="line">	//借助mapState生成计算属性:sum、school、subject(数组写法)</span><br><span class="line">	...mapState([&#x27;sum&#x27;,&#x27;school&#x27;, &#x27;subject&#x27;])</span><br><span class="line">	&#125;,</span><br></pre></td></tr></table></figure>
+<p>​        2. <strong>mapGetters方法</strong>:用于帮助我们映射<code>getters</code>中的数据为计算属性</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="attr">computed</span>:&#123;</span><br><span class="line">	<span class="comment">//借助mapGetters生成计算属性:bigSum(对象写法)</span></span><br><span class="line">	...<span class="title function_">mapGetters</span>(&#123;<span class="attr">bigSum</span>:<span class="string">&#x27;bigSum&#x27;</span>&#125;),</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//借助mapGetters生成计算属性:bigSum(数组写法)</span></span><br><span class="line">	...<span class="title function_">mapGetters</span>([<span class="string">&#x27;bigSum&#x27;</span>])</span><br><span class="line">	&#125;，</span><br></pre></td></tr></table></figure>
+<p>​        3.<strong>mapActions方法</strong>:用于帮助我们生成与<code>actions</code>对话的方法，即: 包含<code>$store.dispatch(xxx)</code>的函数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">	<span class="comment">//靠mapActions生成:incrementOdd、incrementWait(对象形式)</span></span><br><span class="line">	...<span class="title function_">mapActions</span>(&#123;<span class="attr">incrementOdd</span>:<span class="string">&#x27;jiaOdd&#x27;</span>,<span class="attr">incrementWait</span>:<span class="string">&#x27;jiaWait&#x27;</span>&#125;)</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//靠mapActions生成:incrementOdd incrementWait(数组形式)</span></span><br><span class="line">	...<span class="title function_">mapActions</span>([<span class="string">&#x27;jiaOdd&#x27;</span>,<span class="string">&#x27;jiaWait&#x27;</span>])</span><br><span class="line">	&#125;,</span><br></pre></td></tr></table></figure>
+<p><strong>4.方法</strong>: 用于帮助我们生成与<code>mutations</code>对话的方法，即:包含<code>$store.commit(xxx)</code>的函数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="attr">methods</span>:&#123;</span><br><span class="line">	<span class="comment">//靠mapActions生成:increment、decrement(对象形式)</span></span><br><span class="line">	...<span class="title function_">mapMutations</span>(&#123;<span class="attr">increment</span>:<span class="string">&#x27;JIA&#x27;</span>,<span class="attr">decrement</span>:<span class="string">&#x27;JIAN&#x27;</span>&#125;),</span><br><span class="line"></span><br><span class="line">	<span class="comment">//靠mapMutations生成:JIA、JIAN(对象形式)</span></span><br><span class="line">	...<span class="title function_">mapMutations</span>([<span class="string">&#x27;JIA&#x27;</span>,<span class="string">&#x27;JIAN&#x27;</span>])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>备注</strong>: <code>mapActions</code>与<code>mapMutations</code>使用时，若需要传递参数, 需要在模板中绑定事件时传递好参数，否则参数是事件对象。</p>
+<h4 id="7-模块化-命名空间"><a href="#7-模块化-命名空间" class="headerlink" title="7.模块化+命名空间"></a>7.模块化+命名空间</h4><p>​        1.目的:让代码更好维护，让多种数据分类更加明确。</p>
+<p>​        2.修改<code>store.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> countAbout=&#123;</span><br><span class="line">	<span class="attr">namespaced</span>:<span class="literal">true</span>,<span class="comment">//开启命名空间 </span></span><br><span class="line">	<span class="attr">state</span>:&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;，</span><br><span class="line">	<span class="attr">mutations</span>:&#123; ·. &#125;, </span><br><span class="line">	<span class="attr">actions</span>:&#123;·.&#125;, </span><br><span class="line">	<span class="attr">getters</span>:&#123;</span><br><span class="line">		<span class="title function_">bigSum</span>(<span class="params">state</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> state.<span class="property">sum</span>*<span class="number">10</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> personAbout = &#123;</span><br><span class="line">	<span class="attr">namespaced</span>:<span class="literal">true</span>，<span class="comment">//开启命名空间 </span></span><br><span class="line">	<span class="attr">state</span>:&#123; ... &#125;,</span><br><span class="line">	<span class="attr">mutations</span>:&#123; ... &#125;, </span><br><span class="line">	<span class="attr">actions</span>:&#123; ... &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> store =<span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123; </span><br><span class="line">	<span class="attr">modules</span>:&#123; </span><br><span class="line">		countAbout, </span><br><span class="line">		personAbout</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>3.开启命名空间后，组件中读取<code>state</code>数据:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方式一: 自己直接读取</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$store</span>.<span class="property">state</span>.<span class="property">personAbout</span>.<span class="property">list</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方式二:借助mapState读取:</span></span><br><span class="line">...<span class="title function_">mapState</span>(<span class="string">&#x27;countAbout&#x27;</span>,[<span class="string">&#x27;sum&#x27;</span>, <span class="string">&#x27;school&#x27;</span>,<span class="string">&#x27;subject&#x27;</span>]),</span><br></pre></td></tr></table></figure>
+<p>4.开启命名空间后，组件中读取<code>getters</code>数据:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方式一:自己直接读取</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$store</span>.<span class="property">getters</span>[<span class="string">&#x27;personAbout/firstPersonName’]</span></span><br><span class="line"><span class="string">//方式二:借助mapGetters读取:</span></span><br><span class="line"><span class="string">...mapGetters(&#x27;</span>countAbout<span class="string">&#x27;,[&#x27;</span>bigSum<span class="string">&#x27;])</span></span><br></pre></td></tr></table></figure>
+<p>5.开启命名空间后，组件中调用<code>dispatch</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方式一:自己直接dispatch</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">dispatch</span>(<span class="string">&#x27;personAbout/addPersonWang&#x27;</span>,person)</span><br><span class="line"><span class="comment">//方式二:借助mapActions:</span></span><br><span class="line">...<span class="title function_">mapActions</span>(<span class="string">&#x27;countAbout’,&#123;incrementOdd:&#x27;</span>jiaOdd<span class="string">&#x27;,incrementWait:&#x27;</span>jiaWait<span class="string">&#x27;&#125;)</span></span><br></pre></td></tr></table></figure>
+<p>6.开启命名空间后，组件中调用<code>commit</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方式一:自己直接commit</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$store</span>.<span class="title function_">commit</span>(<span class="string">&#x27;personAbout/ADD PERSON&#x27;</span>,person)</span><br><span class="line"><span class="comment">//方式二:借助mapMutations:</span></span><br><span class="line">..<span class="title function_">mapMutations</span>(<span class="string">&#x27;countAbout&#x27;</span>,&#123;<span class="attr">increment</span>:<span class="string">&#x27;JIA&#x27;</span>,<span class="attr">decrement</span>:<span class="string">&#x27;JIAN&#x27;</span>&#125;),</span><br></pre></td></tr></table></figure>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>​    1.理解:  一个路由Groute)就是一组映射关系(key-value)，多个路由需要路由器(router)进行管理。<br>​    2.前端路由:key是路径，value是组件。</p>
+<h4 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1. 基本使用"></a>1. 基本使用</h4><p>​        1.安装vue-router 打开终端输入 <code>npm i vue-router</code></p>
+<p>​            <strong>注意</strong>：如果现在用的是vue2 那么安装 <code>npm i vue-router@3</code> vue-router三版本</p>
+<p>​                        如果用的是vue3 就去掉后缀的 <strong>@3</strong>        2.应用插件:Vue.use(VueRouter)<br>​        3.编写router配置项:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引入VueRouter</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VueRouter</span> <span class="keyword">from</span> <span class="string">&#x27;vue-router</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//引入Luyou组件</span></span><br><span class="line"><span class="string">import About from&#x27;</span>../components/<span class="title class_">About</span> </span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span><span class="string">&#x27;../components/Home</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">//创建router实例对象，去管理一组一组的路由规则 </span></span><br><span class="line"><span class="string">const router=new VueRouter(&#123;</span></span><br><span class="line"><span class="string">		routes:[</span></span><br><span class="line"><span class="string">            &#123;</span></span><br><span class="line"><span class="string">  				path:&#x27;</span>/about<span class="string">&#x27;, </span></span><br><span class="line"><span class="string">  				component:About</span></span><br><span class="line"><span class="string">  			&#125;，</span></span><br><span class="line"><span class="string">  			&#123;</span></span><br><span class="line"><span class="string">  				path:&#x27;</span>/home<span class="string">&#x27;, </span></span><br><span class="line"><span class="string">  				component:Home</span></span><br><span class="line"><span class="string">  			&#125;</span></span><br><span class="line"><span class="string">  		]</span></span><br><span class="line"><span class="string">  	&#125;)</span></span><br><span class="line"><span class="string">  	</span></span><br><span class="line"><span class="string">//暴露router</span></span><br><span class="line"><span class="string">export default router</span></span><br></pre></td></tr></table></figure>
+<p><strong>4.实现切换(active-class可配置高亮样式)</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;router-link active-<span class="keyword">class</span>=<span class="string">&quot;active&quot;</span> to = <span class="string">&quot;/about&quot;</span>&gt;<span class="title class_">About</span>&lt;/router-link&gt;</span><br></pre></td></tr></table></figure>
+<p>5.指定展示位置</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-理解-vue-router"><a href="#2-理解-vue-router" class="headerlink" title="2. 理解 vue-router"></a>2. 理解 vue-router</h4><p>​        <strong>vue-router的理解</strong></p>
+<p>​                vue的一个插件库，专门用来实现SPA应用</p>
+<p>​        <strong>对SPA应用的理解</strong></p>
+<p>​                1.单页Web应用(singlepagewebapplicationSPA)。</p>
+<p>​                2.整个应用只有<strong>一个完整的页面</strong>。</p>
+<p>​                3.点击页面中的导航链接<strong>不会刷新</strong>页面，只会做页面的<strong>局部更新</strong>。</p>
+<p>​                4.数据需要通过ajax请求获取。</p>
+<p><strong>路由的理解</strong></p>
+<p>​    1.什么是路由?<br>​            一个路由就是一组映射关系    (key-value)</p>
+<p>​            多个路由，需要经过路由器的管理</p>
+<ol>
+<li>key为路径value可能是function或componente</li>
+<li>路由分类</li>
+<li>后端路由:</li>
+</ol>
+<p>​                    1)理解:value是function，用于处理客户端提交的请求。</p>
+<p>​                    2)工作过程:服务器接收到一个请求时，根据<strong>请求路径**</strong>找到匹配的函数来处**</p>
+<p>理请求，返回响应数据。</p>
+<p>​            2. 前端路由:</p>
+<p>​                    1)理解   value 是 component，用于展示页面内容。</p>
+<p>​                    2)工作过程:  当浏览器的路径改变时，对应的组件就会显示</p>
+<h4 id="3-几个注意点"><a href="#3-几个注意点" class="headerlink" title="3.几个注意点:"></a>3.几个注意点:</h4><p>​    1.路由组件通常存放在<code>pages</code>文件夹，一般组件通常存放在<code>components</code>文件夹。</p>
+<p>​    2.通过切换，“隐藏”了的路由组件，默认是被销毁掉的，需要的时候再去挂载。</p>
+<p>​    3.每个组件都有自己的<code>$route</code>属性，里面存储着自己的路由信息。</p>
+<p>​    4.整个应用只有一个<code>router</code>，可以通过组件的<code>$router</code>属性获取到。</p>
+<h4 id="4-路由的query参数"><a href="#4-路由的query参数" class="headerlink" title="4.路由的query参数"></a>4.路由的query参数</h4><p>1.传递参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!-- 跳转并携带query参数，to的字符串写法 --&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;/home/message/detail?id=666&amp;title=你好&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">  &lt;!--跳转并携带query参数，to的对象写法 --&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">router-link</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">:to</span>=<span class="string">&quot;&#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        path:&#x27;/home/message/detail&#x27;, </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        query:&#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">          id:666,</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">          title:&#x27;你好&#x27;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">        &#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    &#125;&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml"></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">  &gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>2.接收参数:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$route.<span class="property">query</span>.<span class="property">id</span></span><br><span class="line">$route.<span class="property">query</span>.<span class="property">title</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-命名路由"><a href="#5-命名路由" class="headerlink" title="5.命名路由"></a>5.命名路由</h4><p>​    1作用:可以简化路由的跳转。</p>
+<p>​    2.如何使用</p>
+<p>​        1.给路由命名:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">path</span>:<span class="string">&#x27;/demo&#x27;</span>, </span><br><span class="line">	<span class="attr">component</span>:<span class="title class_">Demo</span>, </span><br><span class="line">	<span class="attr">children</span>:[</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">path</span>:<span class="string">&#x27;test&#x27;</span>, </span><br><span class="line">			<span class="attr">component</span>:<span class="title class_">Test</span>, </span><br><span class="line">			<span class="attr">children</span>:[</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="attr">name</span>:<span class="string">&#x27;hello&#x27;</span>,	<span class="comment">//给路由命名 </span></span><br><span class="line">					<span class="attr">path</span>:<span class="string">&#x27;welcome&#x27;</span>, </span><br><span class="line">					<span class="attr">component</span>:<span class="title class_">Hello</span>,</span><br><span class="line">				&#125;</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.简化跳转：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!--简化前，需要写完整的路径--&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/demo/test/welcome&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!--简化后，直接通过名字跳转 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;&#123;name:&#x27;hello&#x27;&#125;&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!--简化写法配合传递参数 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">router-link</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">	<span class="attr">:to</span>=<span class="string">&quot;&#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">	name:hello&#x27;, </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">	query:&#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">		id:666,</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">		title:&quot;</span><span class="attr">你好</span>&quot;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">		&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">	&#125;&quot;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="6-路由的params参数"><a href="#6-路由的params参数" class="headerlink" title="6.路由的params参数"></a><strong>6.路由的params参数</strong></h4><p>​        1.配置路由，声明接收params参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">path</span>:/home<span class="string">&#x27;, </span></span><br><span class="line"><span class="string">	component:Home,</span></span><br><span class="line"><span class="string">	children:[</span></span><br><span class="line"><span class="string">		&#123;</span></span><br><span class="line"><span class="string">			path: &#x27;</span>news<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">			component:News,</span></span><br><span class="line"><span class="string">		&#125;,	</span></span><br><span class="line"><span class="string">		&#123;</span></span><br><span class="line"><span class="string">			component:Message, </span></span><br><span class="line"><span class="string">			children:[</span></span><br><span class="line"><span class="string">				&#123;</span></span><br><span class="line"><span class="string">					name:&#x27;</span>xiangqing<span class="string">&#x27;,</span></span><br><span class="line"><span class="string">					path:&#x27;</span>detail/:id/:title<span class="string">&#x27;，//使用占位符声明接收params参数 </span></span><br><span class="line"><span class="string">					component:Detail</span></span><br><span class="line"><span class="string">				&#125;</span></span><br><span class="line"><span class="string">			]</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	]</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>2.传递参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;!--跳转并携带params参数，to的字符串写法 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">&quot;/home/message/detail/666/你好&quot;</span>&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;!--跳转并携带params参数，to的对象写法 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">router-link</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">	<span class="attr">:to</span>=<span class="string">&quot;&#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">	name: &#x27;xiangqing&#x27;, </span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">	params:&#123;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">		id:666,</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">		title:&#x27;你好</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">	&#125;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">&#125;&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">&gt;</span>跳转<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意:"></a>特别注意:</h5><p>​    路由携带params参数时，若使用to的对象写法，则不能使用path配置项，必须使用name配置!</p>
+<p>3.接收参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">$route.<span class="property">params</span>.<span class="property">id</span></span><br><span class="line">$route.<span class="property">params</span>.<span class="property">title</span></span><br></pre></td></tr></table></figure>
+<p>7.路由的props配置</p>
+<p>​    作用：让路由组件更方便的收到参数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;xiangqing&#x27;</span>, </span><br><span class="line">	<span class="attr">path</span>:detail/:id<span class="string">&#x27;, </span></span><br><span class="line"><span class="string">	component:Detail,</span></span><br><span class="line"><span class="string">	</span></span><br><span class="line"><span class="string">	//第一种写法:props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件</span></span><br><span class="line"><span class="string">	// props:&#123;a:900&#125;</span></span><br><span class="line"><span class="string">	//第二种写法:props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件</span></span><br><span class="line"><span class="string">	// props:true</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">	//第三种写法:props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件 				props(route)&#123;</span></span><br><span class="line"><span class="string">				return &#123;</span></span><br><span class="line"><span class="string">					id:route.query.id,</span></span><br><span class="line"><span class="string">					title:route.query.title</span></span><br><span class="line"><span class="string">				&#125;</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">		&#125;</span></span><br></pre></td></tr></table></figure>
+<h4 id="8-lt-router-link-gt-的replace属性"><a href="#8-lt-router-link-gt-的replace属性" class="headerlink" title="8.&lt;router-link&gt;的replace属性"></a>8.<code>&lt;router-link&gt;</code>的replace属性</h4><p>​        1.作用:控制路由跳转时操作浏览器历史记录的模式</p>
+<p>​        2.浏览器的历史记录有两种写入方式:分别为<code>push</code>和<code>replace</code>，<code>push</code>是追加历史记录，<code>replace</code>是替换当前记录。路由跳转时候默认为<code>push</code></p>
+<p>​        3.如何开启<code>replace</code>模式:<code>&lt;router-link replace.......&gt;News&lt;/router-link&gt;</code></p>
+<h4 id="9-编程式路由导航"><a href="#9-编程式路由导航" class="headerlink" title="9.编程式路由导航"></a>9.编程式路由导航</h4><p>1.作用：不借助<code>&lt;router-link&gt;</code>实现路由跳转，让路由跳转更加灵活</p>
+<p>2.具体编码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//$router的两个API </span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;xiangqing&#x27;</span>,</span><br><span class="line">	<span class="attr">params</span>:&#123;</span><br><span class="line">		<span class="attr">id</span>:xxx, </span><br><span class="line">		<span class="attr">title</span>:xxx</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">	</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">replace</span>(&#123;</span><br><span class="line">	<span class="attr">name</span>:<span class="string">&#x27;xiangqing&#x27;</span>,</span><br><span class="line">	<span class="attr">params</span>:&#123;</span><br><span class="line">		<span class="attr">id</span>:xxx, </span><br><span class="line">		<span class="attr">title</span>:xxx</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">forward</span>() <span class="comment">//前进</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">back</span>() <span class="comment">//后退</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">go</span>(步数)	<span class="comment">//可前进也可后退 正数前进，负数后退</span></span><br></pre></td></tr></table></figure>
+<h4 id="10-缓存路由组件"><a href="#10-缓存路由组件" class="headerlink" title="10.缓存路由组件"></a>10.缓存路由组件</h4><p>​        1.作用:让不展示的路由组件保持挂载，不被销毁。</p>
+<p>​        2.具体编码:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">keep-alive</span> <span class="attr">include</span>=<span class="string">&quot;News&quot;</span>&gt;</span>	//include 缓存的是组件名</span><br><span class="line">	<span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="11、两个新的生命周期钩子"><a href="#11、两个新的生命周期钩子" class="headerlink" title="11、两个新的生命周期钩子"></a>11、两个新的生命周期钩子</h4><p>​        1.作用:  路由组件所独有的两个钩子用于捕获路由组件的激活状态。</p>
+<p>​        2.具体名字:<br>​                    1.<code>activated</code> 路由组件被激活时触发。</p>
+<p>​                    2. <code>deactivated</code> 路由组件失活时触发。（取消激活时触发）</p>
+<h4 id="12、路由守卫"><a href="#12、路由守卫" class="headerlink" title="12、路由守卫"></a>12、路由守卫</h4><p>​        1.作用:对路由进行权限控制</p>
+<p>​        2.分类:全局守卫、独享守卫、组件内守卫</p>
+<p>​        3.<strong>全局守卫</strong>:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//全局前置守卫:初始化时执行、每次路由切换前执行 </span></span><br><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to,<span class="keyword">from</span>,next</span>)=&gt;</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(beforeEach<span class="string">&#x27;,to,from)</span></span><br><span class="line"><span class="string">	if(to.meta.isAuth)&#123; //判断当前路由是否需要进行权限控制</span></span><br><span class="line"><span class="string">		if(localStorage.getItem(schoo1&#x27;</span>)==<span class="string">&#x27;dakai&#x27;</span>)&#123;<span class="comment">//权限控制的具体规则</span></span><br><span class="line">			<span class="title function_">next</span>()<span class="comment">//放行</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="title function_">alert</span>(<span class="string">&#x27;暂无权限查看)</span></span><br><span class="line"><span class="string">			// next(&#123;name:&#x27;</span>dakai<span class="string">&#x27;&#125;)</span></span><br><span class="line"><span class="string">			&#125;else&#123;</span></span><br><span class="line"><span class="string">				next() //放行</span></span><br><span class="line"><span class="string">			&#125;</span></span><br><span class="line"><span class="string">		&#125;)</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">//全局后置守卫，初始化时执行、每次路由切换后执行 router.afterEach((to,from)=&gt;&#123;</span></span><br><span class="line"><span class="string">	console.log(&#x27;</span>afterEach<span class="string">&#x27;,to,from) </span></span><br><span class="line"><span class="string">	if(to.meta.title)&#123;</span></span><br><span class="line"><span class="string">		document.title=to.meta.title  //修改网页的title</span></span><br><span class="line"><span class="string">	&#125;else&#123;</span></span><br><span class="line"><span class="string">		document.title = &#x27;</span>vue_test<span class="string">&#x27;</span></span><br><span class="line"><span class="string">	&#125;</span></span><br><span class="line"><span class="string">&#125;)</span></span><br></pre></td></tr></table></figure>
+<p>4.<strong>独享守卫</strong>：</p>
+<p>​    </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">beforeEnter</span>(<span class="params">to,<span class="keyword">from</span>,next</span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;beforeEnter&#x27;</span>,to,<span class="keyword">from</span>)</span><br><span class="line">	<span class="keyword">if</span>(to.<span class="property">meta</span>.<span class="property">isAuth</span>)&#123;<span class="comment">//判断当前路由是否需要进行权限控制</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;school&#x27;</span>) === <span class="string">&#x27;atguigu&#x27;</span>)&#123;</span><br><span class="line">			<span class="title function_">next</span>()</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="title function_">alert</span>(<span class="string">&#x27;暂无权限查看&#x27;</span>)</span><br><span class="line">			<span class="comment">// next(&#123;name:&#x27;guanyu&#x27;&#125;)</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="title function_">next</span>()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5<strong>.组件内守卫</strong>:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//进入守卫:通过路由规则，进入该组件时被调用</span></span><br><span class="line"> <span class="title function_">beforeRouteEnter</span>(<span class="params">to,<span class="keyword">from</span>,next</span>)&#123;</span><br><span class="line"> </span><br><span class="line"> &#125;,</span><br><span class="line"><span class="comment">//离开守卫:通过路由规则，离开该组件时被调用 </span></span><br><span class="line"><span class="title function_">beforeRouteLeave</span>(<span class="params">to,<span class="keyword">from</span>,next</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="http://shiqi217.com">十七</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://lcl.shiqi217.com/2022/08/31/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue2%E8%84%9A%E6%89%8B%E6%9E%B6%E6%80%BB%E7%BB%93/">https://lcl.shiqi217.com/2022/08/31/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue2%E8%84%9A%E6%89%8B%E6%9E%B6%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">此文章版权归十七所有，如有转载，请注明来自原作者</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vue/">Vue</a></div><div class="post_share"><div class="social-share" data-image="/./img/hmbb.jfif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><link rel="stylesheet" href="/css/coin.css" media="defer" onload="this.media='all'"/><div class="post-reward"><button class="tip-button reward-button"><span class="tip-button__text">不给糖果就捣蛋</span><div class="coin-wrapper"><div class="coin"><div class="coin__middle"></div><div class="coin__back"></div><div class="coin__front"></div></div></div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="./img/wx.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/wx.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="./img/zfb.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/zfb.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></button></div><audio id="coinAudio" src="https://cdn.cbd.int/akilar-candyassets@1.0.36/audio/coin.mp3"></audio><script defer="defer" src="/js/coin.js"></script><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/02/hexo/%E5%85%B3%E4%BA%8ETwikoo%E8%AF%84%E8%AE%BA%E9%85%8D%E7%BD%AE/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/wenzhang/Twikoo%E9%83%A8%E7%BD%B2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">关于Twikoo的部署</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/29/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue2%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/hmbb3.jfif" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vue2知识点</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/08/29/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue2%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" title="Vue2知识点"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/hmbb3.jfif" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-29</div><div class="title">Vue2知识点</div></div></a></div><div><a href="/2022/09/18/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue3%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" title="Vue3知识点"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/bj/bj-28.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-18</div><div class="title">Vue3知识点</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div><div class="comment-barrage"></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/myVia.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">十七</div><div class="author-info__description">不要让生活蹂躏了你的眉目还有深情✨🖤</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="http://shiqi217.com"><i class="fab fa-github"></i><span>期待再次相遇</span></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/rg617yyds" target="_blank" title="Github"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-gitHub"></use></svg></a><a class="social-icon faa-parent animated-hover" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=2556093477@qq.com" target="_blank" title="Email"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-youxiang"></use></svg></a><a class="social-icon faa-parent animated-hover" href="tencent://Message/?Uin=2556093477&amp;amp;websiteName=local.edu.com:8888=&amp;amp;Menu=yes" target="_blank" title="QQ"><svg class="icon faa-tada" aria-hidden="true"><use xlink:href="#icon-QQ1"></use></svg></a></div></div><div class="card-widget card-announcement"><div id="welcome-info"></div><div class="item-headline"><span>公告</span></div><div class="announcement_content"></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%84%9A%E6%89%8B%E6%9E%B6%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-text">脚手架文件结构:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC%E7%9A%84Vue"><span class="toc-text">关于不同版本的Vue:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-config-js%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">vue.config.js配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref%E5%B1%9E%E6%80%A7"><span class="toc-text">ref属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%A1%B9props"><span class="toc-text">配置项props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mixin-%E6%B7%B7%E5%85%A5"><span class="toc-text">mixin(混入)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6"><span class="toc-text">插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scoped%E6%A0%B7%E5%BC%8F"><span class="toc-text">scoped样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93TodoList%E6%A1%88%E4%BE%8B"><span class="toc-text">总结TodoList案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webStorage"><span class="toc-text">webStorage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-text">组件的自定义事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF-GlobalEventBus"><span class="toc-text">全局事件总线(GlobalEventBus)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E6%81%AF%E8%AE%A2%E9%98%85%E4%B8%8E%E5%8F%91%E5%B8%83-pubsub"><span class="toc-text">消息订阅与发布(pubsub)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nextTick"><span class="toc-text">nextTick*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E5%B0%81%E8%A3%85%E7%9A%84%E8%BF%87%E5%BA%A6%E4%B8%8E%E5%8A%A8%E7%94%BB"><span class="toc-text">Vue封装的过度与动画</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue%E8%84%9A%E6%89%8B%E6%9E%B6%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-text">vue脚手架配置代理</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-text">方法二</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD"><span class="toc-text">插槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex"><span class="toc-text">vuex</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8Vuex"><span class="toc-text">1、什么时候使用Vuex</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E6%90%AD%E5%BB%BAvuex%E7%8E%AF%E5%A2%83"><span class="toc-text">2、搭建vuex环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">3、基本使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81getters%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">4、getters的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E5%9B%9B%E4%B8%AAmap%E6%96%B9%E6%B3%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">5、四个map方法的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E6%A8%A1%E5%9D%97%E5%8C%96-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-text">7.模块化+命名空间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-text">1. 基本使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%90%86%E8%A7%A3-vue-router"><span class="toc-text">2. 理解 vue-router</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%87%A0%E4%B8%AA%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-text">3.几个注意点:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E8%B7%AF%E7%94%B1%E7%9A%84query%E5%8F%82%E6%95%B0"><span class="toc-text">4.路由的query参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%91%BD%E5%90%8D%E8%B7%AF%E7%94%B1"><span class="toc-text">5.命名路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%B7%AF%E7%94%B1%E7%9A%84params%E5%8F%82%E6%95%B0"><span class="toc-text">6.路由的params参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%89%B9%E5%88%AB%E6%B3%A8%E6%84%8F"><span class="toc-text">特别注意:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-lt-router-link-gt-%E7%9A%84replace%E5%B1%9E%E6%80%A7"><span class="toc-text">8.&lt;router-link&gt;的replace属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E7%BC%96%E7%A8%8B%E5%BC%8F%E8%B7%AF%E7%94%B1%E5%AF%BC%E8%88%AA"><span class="toc-text">9.编程式路由导航</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E7%BC%93%E5%AD%98%E8%B7%AF%E7%94%B1%E7%BB%84%E4%BB%B6"><span class="toc-text">10.缓存路由组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11%E3%80%81%E4%B8%A4%E4%B8%AA%E6%96%B0%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90"><span class="toc-text">11、两个新的生命周期钩子</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12%E3%80%81%E8%B7%AF%E7%94%B1%E5%AE%88%E5%8D%AB"><span class="toc-text">12、路由守卫</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/23/%E5%89%8D%E7%AB%AF/JS%E4%B8%AD%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/" title="JavaScript中改变this指向的三种方法"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/bj/bj-80.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript中改变this指向的三种方法"/></a><div class="content"><a class="title" href="/2022/09/23/%E5%89%8D%E7%AB%AF/JS%E4%B8%AD%E6%94%B9%E5%8F%98this%E6%8C%87%E5%90%91%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/" title="JavaScript中改变this指向的三种方法">JavaScript中改变this指向的三种方法</a><time datetime="2022-09-22T20:02:17.000Z" title="发表于 2022-09-23 04:02:17">2022-09-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/18/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue3%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" title="Vue3知识点"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/bj/bj-28.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue3知识点"/></a><div class="content"><a class="title" href="/2022/09/18/%E5%89%8D%E7%AB%AF/Vue%E7%9F%A5%E8%AF%86%E7%82%B9/Vue3%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" title="Vue3知识点">Vue3知识点</a><time datetime="2022-09-18T11:50:17.000Z" title="发表于 2022-09-18 19:50:17">2022-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/07/%E5%89%8D%E7%AB%AF/js%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="JavaScript的数组常用方法"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/bj/bj-27.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaScript的数组常用方法"/></a><div class="content"><a class="title" href="/2022/09/07/%E5%89%8D%E7%AB%AF/js%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95/" title="JavaScript的数组常用方法">JavaScript的数组常用方法</a><time datetime="2022-09-07T08:02:17.000Z" title="发表于 2022-09-07 16:02:17">2022-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/05/%E5%89%8D%E7%AB%AF/JS%E9%9D%A2%E8%AF%95%E9%A2%98/" title="JS面试题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/hmbb2.jfif" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JS面试题"/></a><div class="content"><a class="title" href="/2022/09/05/%E5%89%8D%E7%AB%AF/JS%E9%9D%A2%E8%AF%95%E9%A2%98/" title="JS面试题">JS面试题</a><time datetime="2022-09-05T12:00:09.000Z" title="发表于 2022-09-05 20:00:09">2022-09-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/05/%E5%89%8D%E7%AB%AF/HTML%E4%B8%8ECSS/" title="HTML及CSS面试题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/./img/bj/bj-22.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="HTML及CSS面试题"/></a><div class="content"><a class="title" href="/2022/09/05/%E5%89%8D%E7%AB%AF/HTML%E4%B8%8ECSS/" title="HTML及CSS面试题">HTML及CSS面试题</a><time datetime="2022-09-05T11:40:09.000Z" title="发表于 2022-09-05 19:40:09">2022-09-05</time></div></div></div></div><div class="card-widget card-cheesy_pick-up_lines"><div class="card-content"><div class="item-headline"><i class="fas fa-heart" style="color:pink"></i><span>土味情话</span></div><div id="cheesy_pick-up_lines-container"></div></div></div><script data-pjax="data-pjax" src="/js/custom/cheesy_pick-up_lines.js"></script><div class="js-pjax"><script>cheesy_pick_up_lines()</script></div></div></div></main><footer id="footer" style="background-image: url('/./img/hmbb.jfif')"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2023 By 十七</div><div class="footer_custom_text">如果思念的尽头是重逢就好了😊</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="to_comment" type="button" title="直达评论" onclick="FixedCommentBtn();"><i class="fas fa-comments"></i></button><a id="switch_commentBarrage" href="javascript:switchCommentBarrage();" title="开关弹幕"><i class="iconfont icon-danmu"></i></a><button type="button" title="切换背景" onclick="toggleWinbox()"><i class="fas fa-display"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="nav-music"><div id="nav-music-hoverTips" onclick="lcl.musicToggle()">播放音乐</div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--lcl-main)" data-lrctype="0" order="random"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="iconfont icon-baidu"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:switchCommentBarrage()"><i class="fa fa-bell-slash"></i><span>开/关评论弹幕</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="./#post-comment"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.click()"><i class="fa fa-arrows-alt"></i><span>全屏显示</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:toRandomPost()"><i class="fa fa-paper-plane"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="fa fa-moon"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.translate();"><i class="iconfont icon-fanti"></i><span>繁简转换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="fa fa-book"></i><span>阅读模式</span></a><a class="rightMenu-item" href="javascript:window.location.href=&quot;/about/&quot;;"><i class="fa fa-info-circle"></i><span>关于我</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twiikoo.shiqi217.com/',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+        //- setTimeout(function(){
+        //-   let tk_comment = document.querySelectorAll('.tk-comments-container .tk-comment')
+        //-   if (tk_comment.length > 0) {
+        //-     let html = `<div class="swiper-wrapper">`
+        //-     for (let i = 0; i < tk_comment.length; i++) {
+        //-       let tk_id = tk_comment[i].getAttribute('id') || ''
+        //-       let tk_nick = tk_comment[i].querySelector('.tk-nick')?.innerText || ''
+        //-       let tk_href = tk_comment[i].querySelector('.tk-nick')?.href || ''
+        //-       let tk_avatar = tk_comment[i].querySelector('.tk-avatar-img')?.src || ''
+        //-       let tk_time = tk_comment[i].querySelector('.tk-time')?.innerText || ''
+        //-       let tk_city = tk_comment[i].querySelector('.tk-extras .tk-extra:first-child span:last-child')?.innerText || ''
+        //-       let tk_content = tk_comment[i].querySelector('.tk-content>span:last-child')?.innerHTML || ''
+        //-       tk_content = tk_content.replace(/\n/g, '') // replace \n
+        //-       tk_content = tk_content.replace(/<blockquote>.*?<\/blockquote>/gi, '') // replace blockquote
+        //-       tk_content = tk_content.replace(/<pre.*?<\/pre>/gi, '[代码]') // replace code
+        //-        html += `
+        //-          <div class="swiper-slide">
+        //-            <div class="comment-barrage-item">
+        //-              <div class="barrage-info">
+        //-                <a class="barrage-title" title="跳转至评论区" href="#post-comment">热评</a>
+        //-                <a href="${tk_href ? tk_href + '" target="_blank" rel="noopener noreferrer" title="访问 '+ tk_nick +'"' : 'javascript:void(0);"'}>
+        //-                  <img class="barrage-avatar" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="${tk_avatar}">
+        //-                </a>
+        //-                <span class="barrage-nick">${tk_nick}</span>
+        //-                <span class="barrage-city">${tk_city}</span>
+        //-                <span class="barrage-time">${tk_time}</span>
+        //-                <a class="barrage-close" onclick="eurkon.switchCommentBarrage()" title="隐藏热评"><i class="fa-solid fa-xmark"></i></a>
+        //-             </div>
+        //-             <div class="barrage-content">
+        //-               <a title="跳转至该评论" href="#${tk_id}">${tk_content}</a>
+        //-             </div>
+        //-           </div>
+        //-         </div>`
+        //-     }
+        //-     html += '</div>'
+        //-     let barrageContainer = document.getElementById('comment-barrage') || document.createElement('div')
+        //-     barrageContainer.id = 'comment-barrage'
+        //-     barrageContainer.innerHTML = html
+        //-     barrageContainer.style.display = window.localStorage.getItem('commentBarrageDisplay') === 'false' ? 'none' : 'block'
+        //-     document.getElementById('post-comment').appendChild(barrageContainer)
+        //-     var barrageSwiper = new Swiper('#comment-barrage', {
+        //-       direction: 'vertical',
+        //-       loop: true,
+        //-       mousewheel: true,
+        //-       autoplay: {
+        //-         delay: 3000,
+        //-         disableOnInteraction: true,
+        //-       }
+        //-     })
+        //-     barrageContainer.onmouseenter = function () {
+        //-       barrageSwiper.autoplay.stop()
+        //-     };
+        //-     barrageContainer.onmouseleave = function () {
+        //-       barrageSwiper.autoplay.start()
+        //-     };
+        //-   }
+        //- },1000)
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twiikoo.shiqi217.com/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script type="text/javascript" src="https://cdn1.tianli0.top/npm/jquery@latest/dist/jquery.min.js"></script><script async data-pjax src="/js/gonggao.js"></script><script async data-pjax src="/js/custom.js"></script><script type="text/javascript" src="/js/commentBarrage.js"></script><script type="text/javascript" src="/js/rightmenu.js"></script><script src="https://npm.elemecdn.com/vue@2.6.11"></script><script async src="/js/diytitle.js"></script><script data-pjax defer src="/js/custom/fixed_comment.js"></script><script src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script src="https://cdn.jsdelivr.net/gh/nextapps-de/winbox/dist/winbox.bundle.min.js"></script><script src="/js/sun_moon.js" async></script><script data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script charset="UTF-8" id="LA_COLLECT" src="https://sdk.51.la/js-sdk-pro.min.js"></script><script src="https://sdk.51.la/perf/js-sdk-perf.min.js" crossorigin="anonymous"></script><script> LA.init({id:"{JrXYaahohQYKcLDl}",ck:"{JrXYaahohQYKcLDl}"})</script><script>new LingQue.Monitor().init({id:"Js2BMYEbe0YNCQH4",sendSuspicious:true});</script><script defer src="/js/light.js"></script><canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script src="/js/lcl_music.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://npm.elemecdn.com/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show","#web_bg",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><div class="app-refresh" id="app-refresh" style="position: fixed;top: -2.2rem;left: 0;right: 0;z-index: 99999;padding: 0 1rem;font-size: 15px;height: 2.2rem;transition: all 0.3s ease;"><div class="app-refresh-wrap" style=" display: flex;color: #fff;height: 100%;align-items: center;justify-content: center;"><label>✨ 有新文章啦！ 👉</label><a href="javascript:void(0)" onclick="location.reload()"><span style="color: #fff;text-decoration: underline;cursor: pointer;">🍗点击食用🍔</span></a></div></div><script>if ('serviceWorker' in navigator) {
+if (navigator.serviceWorker.controller) {
+navigator.serviceWorker.addEventListener('controllerchange', function() {
+showNotification()
+})
+}
+window.addEventListener('load', function() {
+navigator.serviceWorker.register('/sw.js')
+})
+}
+function showNotification() {
+if (GLOBAL_CONFIG.Snackbar) {
+var snackbarBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+GLOBAL_CONFIG.Snackbar.bgLight :
+GLOBAL_CONFIG.Snackbar.bgDark
+var snackbarPos = GLOBAL_CONFIG.Snackbar.position
+Snackbar.show({
+text: '✨ 有新文章啦！ 👉',
+backgroundColor: snackbarBg,
+duration: 500000,
+pos: snackbarPos,
+actionText: '🍗点击食用🍔',
+actionTextColor: '#fff',
+onActionClick: function(e) {
+location.reload()
+},
+})
+} else {
+var showBg =
+document.documentElement.getAttribute('data-theme') === 'light' ?
+'#49b1f5' :
+'#1f1f1f'
+var cssText = `top: 0; background: ${showBg};`
+document.getElementById('app-refresh').style.cssText = cssText
+}
+}</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script>
+    // 全局变量声明区域
+    var fdata = {
+      apiurl: 'https://friends.anzhiy.cn/',
+      initnumber: 30, //【可选】页面初始化展示文章数量
+      stepnumber: 30, //【可选】每次加载增加的篇数
+      error_img: 'https://npm.elemecdn.com/akilar-candyassets/image/404.gif' //【可选，头像图片加载失败时的默认头像】
+    }
+    //存入本地存储
+    localStorage.setItem("fdatalist",JSON.stringify(fdata))
+    </script>
+    <script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.0.9/assets/js/fetch.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.0.9/assets/js/random-friends-post.js"></script><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Frame-Hexo-blue?style=flat&amp;logo=hexo" alt=""/></a><a class="github-badge" target="_blank" href="https://butterfly.js.org/" style="margin-inline:5px" data-title="主题使用Butterfly" title=""><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/Theme-Butterfly-6513df?style=flat&amp;logo=bitdefender" alt=""/></a></p>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime/runtime.min.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu@1.0.6/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '6b968556608f43e487ba679e28b0b7c0';
+  var gaud_map_key = 'dad4ccdda4b0ec06aeb975b061386a2b';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.6534116,27.96920845';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/05/前端/JS面试题/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/hmbb2.jfif" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/05/前端/JS面试题/&quot;);" href="javascript:void(0);" alt="">JS面试题</a><div class="blog-slider__text">总结了JS常出现的面试题</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/05/前端/JS面试题/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/05/书写过去/故事/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.staticaly.com/gh/rg617yyds/lcl-img@master/urllcl/bj-31.png" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/05/书写过去/故事/&quot;);" href="javascript:void(0);" alt="">故事不长，也不难讲，相识一场，爱而不得</a><div class="blog-slider__text">错过了落日余晖，还可以静待满天繁星</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/05/书写过去/故事/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/03/书写过去/一场梦/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/wenzhang/往事回首.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-03</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/03/书写过去/一场梦/&quot;);" href="javascript:void(0);" alt="">一场梦</a><div class="blog-slider__text">此情有憾，然无对错</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/03/书写过去/一场梦/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/05/那些事/2022年9.5/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/wenzhang/bj6.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-05</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/05/那些事/2022年9.5/&quot;);" href="javascript:void(0);" alt="">你未必光芒万丈，但始终温暖有光🎈💫</a><div class="blog-slider__text">再怎么看我也不知道怎么描述它的啦！</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/05/那些事/2022年9.5/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;2022/09/02/hexo/关于Twikoo评论配置/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="./img/wenzhang/Twikoo部署.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2022-09-02</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;2022/09/02/hexo/关于Twikoo评论配置/&quot;);" href="javascript:void(0);" alt="">关于Twikoo的部署</a><div class="blog-slider__text">本文章只有腾讯云的部署</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;2022/09/02/hexo/关于Twikoo评论配置/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '30');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '200ms');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('flink-list-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('article-sort-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__slideInRight');
+    arr[i].setAttribute('data-wow-duration', '1.5s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__flipInY');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script><script async="async">var arr = document.getElementsByClassName('site-card');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__animated');
+    arr[i].setAttribute('data-wow-duration', '3s');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://cdn.cbd.int/hexo-butterfly-wowjs/lib/wow_init.js"></script><script async src="/js/ali_font.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/"});</script></body></html><script>var posts=["2022/09/02/hexo/关于Twikoo评论配置/","2022/09/03/书写过去/一场梦/","2022/09/05/书写过去/故事/","2022/09/05/前端/ES/","2022/09/05/前端/HTML与CSS/","2022/09/05/前端/JS面试题/","2022/09/23/前端/JS中改变this指向的三种方法/","2022/09/05/那些事/2022年9.5/","2022/09/07/前端/js数组常用方法/","2022/08/29/前端/Vue知识点/Vue2知识点总结/","2022/08/31/前端/Vue知识点/Vue2脚手架总结/","2022/09/18/前端/Vue知识点/Vue3知识总结/"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
