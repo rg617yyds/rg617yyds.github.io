@@ -20,7 +20,6 @@ document.addEventListener('visibilitychange', function () {
 var lcl_musicPlaying = false;
 var lcl_musicStretch = false;
 var lcl_musicFirst = false;
-var navMusicEl = document.getElementById("nav-music");
 var lcl = {
   //切换音乐播放状态
   musicToggle: function (changePaly = true) {
@@ -31,29 +30,31 @@ var lcl = {
     let msgPlay = '<i class="fa-solid fa-play"></i><span>播放音乐</span>'; // 此處可以更改為你想要顯示的文字
     let msgPause = '<i class="fa-solid fa-pause"></i><span>暂停音乐</span>'; // 同上，但兩處均不建議更改
     if (lcl_musicPlaying) {
-      navMusicEl.classList.remove("playing");
-      // 修改右键菜单文案为播放
-      // document.getElementById("menu-music-toggle").innerHTML = msgPlay;
+      document.querySelector("#nav-music").classList.remove("playing");
+      document.getElementById("menu-music-toggle").innerHTML = msgPlay;
       document.getElementById("nav-music-hoverTips").innerHTML = "音乐已暂停";
-      // document.querySelector("#consoleMusic").classList.remove("on");
+      document.querySelector("#consoleMusic").classList.remove("on");
       lcl_musicPlaying = false;
-      navMusicEl.classList.remove("stretch");
+      document.querySelector("#nav-music").classList.remove("stretch");
+      lcl_musicStretch = false;
     } else {
-      navMusicEl.classList.add("playing");
-      // 修改右键菜单文案为暂停
-      // document.getElementById("menu-music-toggle").innerHTML = msgPause;
-      // document.querySelector("#consoleMusic").classList.add("on");
+      document.querySelector("#nav-music").classList.add("playing");
+      document.getElementById("menu-music-toggle").innerHTML = msgPause;
+      document.querySelector("#consoleMusic").classList.add("on");
       lcl_musicPlaying = true;
-      navMusicEl.classList.add("stretch");
+      document.querySelector("#nav-music").classList.add("stretch");
+      lcl_musicStretch = true;
     }
     if (changePaly) document.querySelector("#nav-music meting-js").aplayer.toggle();
   },
   // 音乐伸缩
   musicTelescopic: function () {
-    if (navMusicEl.classList.contains("stretch")) {
-      navMusicEl.classList.remove("stretch");
+    if (lcl_musicStretch) {
+      document.querySelector("#nav-music").classList.remove("stretch");
+      lcl_musicStretch = false;
     } else {
-      navMusicEl.classList.add("stretch");
+      document.querySelector("#nav-music").classList.add("stretch");
+      lcl_musicStretch = true;
     }
   },
 
@@ -78,15 +79,19 @@ var lcl = {
   },
 };
 
-// 如果有右键事件 可以在这里写。
 addRightMenuClickEvent();
+
 
 // 音乐绑定事件
 function musicBindEvent() {
   document.querySelector("#nav-music .aplayer-music").addEventListener("click", function () {
-    anzhiyu.musicTelescopic();
+    lcl.musicTelescopic();
   });
-  document.querySelector("#nav-music .aplayer-button").addEventListener("click", function () {
-    anzhiyu.musicToggle(false);
-  });
+}
+
+const metingJs = document.querySelector("#nav-music meting-js");
+//判断是否是音乐
+if (metingJs.contains(event.target)) {
+  
+} else {
 }
