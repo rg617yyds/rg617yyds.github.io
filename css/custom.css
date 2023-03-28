@@ -232,6 +232,11 @@
   #rightside > div > button {
     border-radius: 5px;
   }
+
+  #page-header.nav-fixed #nav #site-name, #page-header.nav-fixed #nav #toggle-menu, #page-header.nav-fixed #nav a{
+    color: var(--font-color);
+    text-shadow: none;
+  }
   
   /* 滚动条 */
   
